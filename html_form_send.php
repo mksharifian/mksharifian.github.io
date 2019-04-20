@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['email'])) {
+if(isset($_POST['demo-email'])) {
      
     // CHANGE THE TWO LINES BELOW
     $email_to = "mksharifian@gmail.com";
