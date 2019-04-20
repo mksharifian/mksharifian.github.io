@@ -23,17 +23,17 @@ if(isset($_POST['demo-email'])) {
         died('We are sorry, but there appears to be a problem with the form you submitted.');       
     }
      
-    $demo-name = $_POST['demo-name']; // required
-    $demo-email = $_POST['demo-email']; // required
-    $demo-message = $_POST['demo-message']; // required
+    $demo_name = $_POST['demo-name']; // required
+    $demo_email = $_POST['demo-email']; // required
+    $demo_message = $_POST['demo-message']; // required
      
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
-  if(!preg_match($email_exp,$demo-email)) {
+  if(!preg_match($email_exp,$demo_email)) {
     $error_message .= 'The Email Address you entered does not appear to be valid.<br />';
   }
     $string_exp = "/^[A-Za-z .'-]+$/";
-  if(!preg_match($string_exp,$demo-name)) {
+  if(!preg_match($string_exp,$demo_name)) {
     $error_message .= 'The First Name you entered does not appear to be valid.<br />';
   }
   if(strlen($comments) < 2) {
@@ -49,14 +49,14 @@ if(isset($_POST['demo-email'])) {
       return str_replace($bad,"",$string);
     }
      
-    $email_message .= "Name: ".clean_string($demo-name)."\n";
-    $email_message .= "Email: ".clean_string($demo-email)."\n";
-    $email_message .= "Comments: ".clean_string($demo-message)."\n";
+    $email_message .= "Name: ".clean_string($demo_name)."\n";
+    $email_message .= "Email: ".clean_string($demo_email)."\n";
+    $email_message .= "Comments: ".clean_string($demo_message)."\n";
      
      
 // create email headers
-$headers = 'From: '.$demo-email."\r\n".
-'Reply-To: '.$demo-email."\r\n" .
+$headers = 'From: '.$demo_email."\r\n".
+'Reply-To: '.$demo_email."\r\n" .
 'X-Mailer: PHP/' . phpversion();
 @mail($email_to, $email_subject, $email_message, $headers);  
 ?>
